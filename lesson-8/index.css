@@ -8,6 +8,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  min-width: calc(500px - 17px);
 }
 
 .header {
@@ -29,6 +30,16 @@ body {
   margin: 0 auto;
 }
 
+.header-inner .fa-solid {
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.header-inner .fa-solid:hover {
+  color: #4f9cd4;
+  transition: all 0.2s ease-in-out;
+}
+
 .header-mob-menu-opener {
   color: #ffffff;
   cursor: pointer;
@@ -36,6 +47,14 @@ body {
 
 .logo {
   height: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+  filter: grayscale(1) drop-shadow(0 0 4px #4f9cd4);
+  transition: all 0.2s ease-out;
 }
 
 .header-menu {
@@ -50,6 +69,39 @@ body {
   display: flex;
   gap: 8px;
   align-items: center;
+}
+
+.user > span {
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.user > span:hover {
+  color: #4f9cd4;
+  transition: all 0.2s ease-out;
+}
+
+.user-img {
+  border-radius: 6px;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.user-img:hover {
+  box-shadow: 0 0 0 2px #4f9cd4;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown {
+  cursor: pointer;
+}
+
+.dropdown:hover {
+  color: #4f9cd4;
+}
+
+.dropdown:hover .dropdown-text {
+  border-bottom: 1px dashed #4f9cd4;
 }
 
 .dropdown-text {
@@ -85,7 +137,7 @@ body {
 }
 
 .navigation-element::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -161,7 +213,7 @@ body {
 
 .content-header h1 {
   font-weight: normal;
-  font-style: 30px;
+  font-size: 30px;
   margin: 0;
 }
 
@@ -176,6 +228,7 @@ body {
 
 .search-bar-btns {
   display: flex;
+  align-items: center;
   gap: 80px;
   font-family: serif;
   color: #99a1b3;
@@ -185,6 +238,32 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.search-bar-btns > span:hover {
+  color: #4f9cd4;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-bar-btns > span:hover .fa-solid {
+  color: #4f9cd4;
+  background-color: rgba(79, 157, 212, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+
+.search-bar-btns .fa-solid {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in;
+}
+
+.search-bar-btns .fa-solid:hover {
+  color: #4f9cd4;
+  background-color: rgba(79, 157, 212, 0.5);
+  transition: all 0.2s ease-in-out;
 }
 
 .search-container {
@@ -197,10 +276,16 @@ body {
   position: absolute;
   top: 12px;
   right: 10px;
-  font-family: "Font Awesome 6 Free";
+  font-family: 'Font Awesome 6 Free';
   font-weight: 900;
-  content: "\f002";
+  content: '\f002';
   color: #97a2b5;
+  transition: all 0.2s ease-in;
+}
+
+.search-container:focus-within::after {
+  color: #4f9cd4;
+  transition: all 0.2s ease-in-out;
 }
 
 .search-input {
@@ -212,11 +297,18 @@ body {
   border-radius: 4px;
   padding: 0 30px 0 10px;
   outline: none;
+  transition: all 0.2s ease-in;
+}
+
+.search-input:hover {
+  border: 1px solid #4f9cd4;
+  transition: all 0.2s ease-in-out;
 }
 
 .search-input:focus {
   border: 1px solid #4f9cd4;
-  box-shadow: 0 0 0 2px rgba(79, 157, 212, 0.5);
+  box-shadow: 0 0 0 4px rgba(79, 157, 212, 0.5);
+  transition: all 0.2s ease-in-out;
 }
 
 .person-card {
@@ -224,6 +316,17 @@ body {
   align-items: flex-start;
   gap: 14px;
   margin: 30px;
+}
+
+.person-card-img {
+  border-radius: 8px;
+  transition: all 0.2s ease-in;
+}
+
+.person-card-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
 }
 
 .person-card-body {
@@ -248,11 +351,31 @@ body {
   background-color: #f2f4f8;
   border-radius: 4px;
   padding: 4px 16px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.person-card .top .user-group:hover {
+  background-color: rgba(79, 157, 212, 0.3);
+  border: 1px solid #4f9cd4;
+  transition: all 0.2s ease-in-out;
+  color: #4f9cd4;
 }
 
 .person-card .top .counters {
   display: flex;
   gap: 10px;
+}
+
+.person-card .top .counters > span {
+  cursor: pointer;
+  transition: all 0.2 ease-in;
+}
+
+.person-card .top .counters > span:hover {
+  color: #4f9cd4;
+  transition: all 0.2 ease-out;
 }
 
 .person-card .title {
@@ -290,6 +413,14 @@ body {
   border: 1px solid #99a1b3;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.content-btn:hover {
+  background-color: #4f9cd4;
+  color: #ffffff;
+  border: 1px solid #4f9cd4;
+  transition: all 0.2s ease-in-out;
 }
 
 .footer {
@@ -313,6 +444,14 @@ body {
   list-style: none;
   color: #99a1b3;
   font-family: sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.footer-nav-element:hover {
+  color: #4f9cd4;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
 }
 
 .footer-copyright {

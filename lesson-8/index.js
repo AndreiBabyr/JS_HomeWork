@@ -1,10 +1,8 @@
 $mobMenuOpener = $('#mob-menu-opener');
 $mobMenu = $('#mob-menu');
 
-console.log($mobMenu)
-
 function toggleMobMenu() {
-  $mobMenu.toggle('fast')
+  $mobMenu.toggle('fast');
 }
 
-$mobMenuOpener.on('click', toggleMobMenu)
+$mobMenuOpener.on('click', toggleMobMenu);
