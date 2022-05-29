@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+}
+
+.table {
+  max-width: 660px;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table td {
+  height: 42px;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table td input {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.table .table-add-row-btn {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
