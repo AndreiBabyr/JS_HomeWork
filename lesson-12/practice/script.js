@@ -13,30 +13,19 @@ var buttons = document.getElementsByTagName('button');
     button = buttons[0];
 
     var linksP1 = firstPar.children;
-    link1 = linksP1[0];
-    link2 = linksP1[1];
- 
+    
+ button.addEventListener('click',changeStlyles,false);
 
-button.addEventListener('click',changeStlyles,false);
+function changeStlyles() { 
+    for( var i = 0; i < linksP1.length; i++) {
+        var links = linksP1[i];
+        links.className = 'changed';
+    }
+};
 
-function changeStlyles() {
-    link1.className = 'changed';
-    link2.className = 'changed';
-           
-}
-
-var linksP2 = secondPar.children;
-    link3 = linksP2[0];
-    link4 = linksP2[1];
-
-link3.onclick = function() { 
-    var ahref1 = link3.href;
-    alert(ahref1);
-    return false;
-}
-
-link4.onclick = function() {
-    var ahref2 = link4.href;
-    alert(ahref2);
-    return false;
-}
+secondPar.onclick = function (event) {
+    if (event.target.tagName === 'A') {
+      event.preventDefault();
+      alert(event.target.href);
+    }
+};
