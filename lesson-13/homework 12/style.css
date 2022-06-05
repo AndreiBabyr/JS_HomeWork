@@ -1,0 +1,17 @@
+.board {
+  display: none;
+  width: fit-content;
+  border: 1px solid #000;
+  gap: 4px;
+  padding: 4px;
+}
+
+.cell {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #000;
+}
+
+.cell_black {
+  background-color: #000;
+}
