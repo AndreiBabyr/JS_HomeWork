@@ -7,36 +7,41 @@ var isBlack = false;
 xInput.onkeyup = checkIsValuesCorrect;
 yInput.onkeyup = checkIsValuesCorrect;
 createBoardBtn.onclick = function () {
-  createBoard(xInput.value, yInput.value);
+  createBoard(+xInput.value, +yInput.value);
 };
 board.onclick = function (event) {
-  if (event.target.classList.contains('cell')) {
+  if (event.target.className.includes('cell')) {
     isBlack = !isBlack;
-    renderCells(xInput.value * yInput.value, xInput.value);
+    renderBoard(+xInput.value, +yInput.value);
   }
 };
 
 function checkIsValuesCorrect() {
-  if (+xInput.value && +yInput.value) createBoardBtn.removeAttribute('disabled');
-  else createBoardBtn.setAttribute('disabled', '1');
+  if (xInput.value.length && yInput.value.length) createBoardBtn.disabled = false;
+  else createBoardBtn.disabled = true;
+}
+
+function isFloat(number) {
+  return number === number && number % 1 !== 0;
 }
 
 function createBoard(x, y) {
-  if (!x || !y || x > 10 || y > 10) return alert('Incorrect value! Value should be from 1 to 10');
-  board.style.gridTemplateColumns = 'repeat(' + x + ', ' + '1fr' + ')';
-  board.style.display = 'grid';
-  renderCells(x * y, x);
+  if (x > 10 || y > 10 || x < 1 || y < 1 || isFloat(x) || isFloat(y) || isNaN(x) || isNaN(y))
+    return alert('Не верное значение !\Введите целое число от 1 до 10');
+  renderBoard(+x, +y);
 }
 
-function renderCells(cellCount, width) {
-  var cells = '';
+function renderBoard(x, y) {
+  board.innerHTML = null;
+  board.hidden = false;
   var isCellBlack = isBlack;
-
-  for (var i = 0; i < cellCount; i++) {
-    if (width % 2 === 0 && i % width === 0) isCellBlack = !isCellBlack;
-    var additionalCellClass = isCellBlack ? ' cell_black' : '';
-    cells += '<div class="' + 'cell' + additionalCellClass + '"></div>';
-    isCellBlack = !isCellBlack;
+  for (var i = 0; i < y; i++) {
+    var row = board.insertRow(i);
+    for (var j = 0; j < x; j++) {
+      if (x % 2 === 0 && j % x === 0) isCellBlack = !isCellBlack;
+      var cell = row.insertCell(j);
+      cell.className = isCellBlack ? 'cell cell_black' : 'cell';
+      isCellBlack = !isCellBlack;
+    }
   }
-  board.innerHTML = cells;
 }
